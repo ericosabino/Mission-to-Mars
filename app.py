@@ -22,9 +22,13 @@ def scrape():
    mars = mongo.db.mars
    mars_data = scraping.scrape_all()
    mars.update({}, mars_data, upsert=True)
-   return redirect('/', code=302)
+   return redirect('/')
 
 
 # Run Flask
 if __name__ == "__main__":
    app.run()
+
+if __name__ == "__main__":
+    # If running as script, print scraped data
+    print(scrape_all())
